@@ -1,6 +1,8 @@
 import 'package:animations/animations.dart';
 import 'package:billit/modules/Account/account_view.dart';
 import 'package:billit/modules/Home/home_view.dart';
+import 'package:billit/modules/Products/product_view.dart';
+import 'package:billit/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,9 +17,10 @@ class LayoutView extends GetView<LayoutController> {
 
   @override
   Widget build(BuildContext context) {
-    const activeColor = Color(0xFF0373F3);
+    const activeColor = Color(0xFF000000);
     const inactiveColor = Color(0XFFBCBCBC);
     final bottomNavBarController = Get.put(LayoutController());
+
     return Obx(() {
       if (bottomNavBarController.isLoading.value) {
         return const Scaffold(
@@ -33,19 +36,32 @@ class LayoutView extends GetView<LayoutController> {
 
       List<Widget> _userPages = [
         HomeView(),
+        ProductView(),
         AccountView(),
       ];
       List<Widget> _userDestinations = [
-        NavigationDestination(
+        const NavigationDestination(
           icon: Icon(
-            SolarIconsOutline.home,
+            SolarIconsOutline.document,
             color: inactiveColor,
           ),
           selectedIcon: Icon(
-            SolarIconsBold.home,
+            SolarIconsOutline.document,
             color: activeColor,
           ),
           label: 'Invoice',
+          tooltip: '',
+        ),
+        const NavigationDestination(
+          icon: Icon(
+            SolarIconsOutline.cart,
+            color: inactiveColor,
+          ),
+          selectedIcon: Icon(
+            SolarIconsOutline.cart,
+            color: activeColor,
+          ),
+          label: 'Products',
           tooltip: '',
         ),
         NavigationDestination(
@@ -54,7 +70,7 @@ class LayoutView extends GetView<LayoutController> {
             color: inactiveColor,
           ),
           selectedIcon: Icon(
-            SolarIconsBold.user,
+            SolarIconsOutline.user,
             color: activeColor,
           ),
           label: 'Account',
@@ -87,42 +103,33 @@ class LayoutView extends GetView<LayoutController> {
                     states.contains(WidgetState.selected)
                         ? GoogleFonts.kantumruyPro(
                             color: activeColor,
+                            fontWeight: FontWeight.w700,
                           )
                         : GoogleFonts.kantumruyPro(
                             color: inactiveColor,
                           ),
               ),
             ),
-            child: NavigationBar(
-              // type: BottomNavigationBarType.fixed,
-              backgroundColor: Colors.white,
-              indicatorColor: Color(0XFF0373F3).withOpacity(0.1),
-
-              // showSelectedLabels: true,
-              // showUnselectedLabels: true,
-              elevation: 19,
-              // selectedLabelStyle: GoogleFonts.kantumruyPro(
-              //   fontSize: 12.sp,
-              //   fontWeight: FontWeight.w700,
-              //   color: activeColor,
-              //   height: 1.5.h,
-              // ),
-              // unselectedLabelStyle: GoogleFonts.kantumruyPro(
-              //   fontSize: 12.sp,
-              //   fontWeight: FontWeight.w400,
-              //   color: Colors.grey,
-              // ),
-              // selectedItemColor: activeColor,
-              // unselectedItemColor: Colors.grey,
-              // selectedFontSize: 8.sp,
-              // unselectedFontSize: 8.sp,
-              // enableFeedback: true,
-              destinations: _userDestinations,
-              selectedIndex: bottomNavBarController.currentIndex,
-              onDestinationSelected: (index) {
-                HapticFeedback.lightImpact();
-                bottomNavBarController.updatePageIndex(index);
-              },
+            child: Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.grey.shade400,
+                    width: 1.0,
+                  ),
+                ),
+              ),
+              child: NavigationBar(
+                backgroundColor: AppColors.scaffoldBg,
+                indicatorColor: AppColors.appPrimary.withOpacity(0.1),
+                elevation: 0,
+                destinations: _userDestinations,
+                selectedIndex: bottomNavBarController.currentIndex,
+                onDestinationSelected: (index) {
+                  HapticFeedback.lightImpact();
+                  bottomNavBarController.updatePageIndex(index);
+                },
+              ),
             ),
           ),
         ),

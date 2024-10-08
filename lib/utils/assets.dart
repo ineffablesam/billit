@@ -7,4 +7,5 @@ class AppAssets {
   static const String logoFullWhiteColorSVG =
       'assets/svg/logo_full_white_color.svg';
   static const String logoWithColorSVG = 'assets/svg/logo_w_color.svg';
+  static const String idBG = 'assets/svg/if_bg.svg';
 }

@@ -208,20 +208,20 @@ class AuthView extends GetView<AuthController> {
                   ),
                 ),
                 25.verticalSpace,
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "CRAFTED BY SAMUEL PHILIP",
-                      style: GoogleFonts.ibmPlexMono(
-                        color: Colors.grey.shade800,
-                        textStyle: TextStyle(
-                          letterSpacing: .5,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.center,
+                //   children: [
+                //     Text(
+                //       "CRAFTED BY SAMUEL PHILIP",
+                //       style: GoogleFonts.ibmPlexMono(
+                //         color: Colors.grey.shade800,
+                //         textStyle: TextStyle(
+                //           letterSpacing: .5,
+                //         ),
+                //       ),
+                //     ),
+                //   ],
+                // ),
                 20.verticalSpace,
               ],
             ),

@@ -1,0 +1,97 @@
+{
+  "_note1": "KEEP THIS FILE! Check it into a version control system (VCS) like git.",
+  "_note2": "ObjectBox manages crucial IDs for your object model. See docs for details.",
+  "_note3": "If you have VCS merge conflicts, you must resolve them according to ObjectBox docs.",
+  "entities": [
+    {
+      "id": "1:1004329388879920808",
+      "lastPropertyId": "5:302927830023177140",
+      "name": "Product",
+      "properties": [
+        {
+          "id": "1:8854025945725242781",
+          "name": "id",
+          "type": 6,
+          "flags": 129
+        },
+        {
+          "id": "2:3130657030155395166",
+          "name": "name",
+          "type": 9
+        },
+        {
+          "id": "3:7114074483432036571",
+          "name": "quantity",
+          "type": 6
+        },
+        {
+          "id": "4:2830180274474937716",
+          "name": "price",
+          "type": 8
+        },
+        {
+          "id": "5:302927830023177140",
+          "name": "sku",
+          "type": 9
+        }
+      ],
+      "relations": []
+    },
+    {
+      "id": "2:1202677154673239085",
+      "lastPropertyId": "6:6238046495621215829",
+      "name": "Invoice",
+      "properties": [
+        {
+          "id": "1:7387981302064137279",
+          "name": "id",
+          "type": 6,
+          "flags": 1
+        },
+        {
+          "id": "2:806112301006689338",
+          "name": "invoiceNumber",
+          "type": 9
+        },
+        {
+          "id": "3:2963825027891188531",
+          "name": "invoiceStatus",
+          "type": 9
+        },
+        {
+          "id": "4:6701397324359910920",
+          "name": "customerName",
+          "type": 9
+        },
+        {
+          "id": "5:2137482812353037600",
+          "name": "invoiceTotal",
+          "type": 8
+        },
+        {
+          "id": "6:6238046495621215829",
+          "name": "invoiceCreatedAt",
+          "type": 10
+        }
+      ],
+      "relations": [
+        {
+          "id": "1:5392732565937482353",
+          "name": "products",
+          "targetId": "1:1004329388879920808"
+        }
+      ]
+    }
+  ],
+  "lastEntityId": "2:1202677154673239085",
+  "lastIndexId": "0:0",
+  "lastRelationId": "1:5392732565937482353",
+  "lastSequenceId": "0:0",
+  "modelVersion": 5,
+  "modelVersionParserMinimum": 5,
+  "retiredEntityUids": [],
+  "retiredIndexUids": [],
+  "retiredPropertyUids": [],
+  "retiredRelationUids": [],
+  "version": 1
+}
