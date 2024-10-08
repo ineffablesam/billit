@@ -1,3 +1,5 @@
+import 'package:billit/modules/Auth/Controller/auth_binding.dart';
+import 'package:billit/modules/Auth/auth_view.dart';
 import 'package:get/get.dart';
 
 import '../modules/Home/Controller/home_binding.dart';
@@ -22,6 +24,11 @@ class AppPages {
       name: _Paths.SPLASH,
       page: () => const SplashView(),
       binding: SplashBinding(),
+    ),
+    GetPage(
+      name: _Paths.AUTH,
+      page: () => const AuthView(),
+      binding: AuthBinding(),
     ),
   ];
 }
